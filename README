@@ -1,6 +1,0 @@
-Lottry investigation ReadMe
----------------------------
-
-To use, clone the project and copy local.config.php.dist to local.config.php. Populate with the required database details.
-
-The save numbers script requires a database table called numbers. Schema to follow.
