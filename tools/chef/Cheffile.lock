@@ -1,0 +1,33 @@
+SITE
+  remote: http://community.opscode.com/api/v1
+  specs:
+    build-essential (2.0.0)
+    chef_handler (1.1.5)
+    iis (2.1.0)
+      windows (>= 1.2.6)
+    mysql (5.0.2)
+    php (1.4.6)
+      build-essential (>= 0.0.0)
+      iis (>= 0.0.0)
+      mysql (>= 0.0.0)
+      windows (>= 0.0.0)
+      xml (>= 0.0.0)
+      yum-epel (>= 0.0.0)
+    sqlite (1.0.0)
+    windows (1.30.2)
+      chef_handler (>= 0.0.0)
+    xml (1.2.4)
+      build-essential (>= 0.0.0)
+    yum (3.1.6)
+    yum-epel (0.3.4)
+      yum (~> 3.0)
+    yum-ius (0.2.0)
+      yum (~> 3.0)
+      yum-epel (>= 0.0.0)
+
+DEPENDENCIES
+  php (>= 0)
+  sqlite (>= 0)
+  yum-epel (>= 0)
+  yum-ius (>= 0)
+

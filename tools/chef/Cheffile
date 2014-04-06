@@ -1,0 +1,6 @@
+site 'http://community.opscode.com/api/v1'
+
+cookbook 'yum-epel'
+cookbook 'yum-ius'
+cookbook 'php'
+cookbook 'sqlite'

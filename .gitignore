@@ -1,1 +1,3 @@
-local.config.php
+tools/chef/cookbooks
+tools/chef/tmp
+tools/vagrant/.vagrant

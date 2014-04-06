@@ -1,0 +1,39 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+project_directory = Dir.pwd.split(File::SEPARATOR)[-3]
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "CentOS-6.5-x86_64-virtualbox-minimal-0.1.1.box"
+  config.vm.box_url = "http://ib-vagrant-vms.s3.amazonaws.com/CentOS-6.5-x86_64-virtualbox-minimal-0.1.1.box"
+
+  config.vm.network :private_network, ip: "192.168.33.48"
+
+  require 'ffi'
+  config.vm.synced_folder "../../", File.join("/mnt", project_directory), :nfs => ! FFI::Platform::IS_WINDOWS
+
+  config.vm.provider :virtualbox do |vb|
+    vb.gui = false
+    vb.customize [
+      "modifyvm", :id,
+      "--name", "LotteryStudy"
+    ]
+  end
+
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = "../chef/cookbooks"
+    
+    chef.add_recipe "yum-epel"
+    chef.add_recipe "yum-ius"
+    chef.add_recipe "sqlite"
+    chef.add_recipe "php"
+ 
+    chef.json = {
+      "php" => {
+        "packages" => %w{ php55u php55u-devel php55u-cli php55u-pear }
+      }
+    }
+  end
+
+end
