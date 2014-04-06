@@ -1,0 +1,12 @@
+{
+    "name": "shanethehat/lottery-study",
+    "require": {
+        "php": ">= 5.3.3"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "2.0.*"
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}
